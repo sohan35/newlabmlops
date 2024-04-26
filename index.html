@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 3px;
+        }
+
+        .form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TO DO LIST</h1>
+        <ul id="item-list">
+            <!-- Item list will be populated dynamically -->
+        </ul>
+        <div class="form">
+            <input type="text" id="item-input" placeholder="Enter an item">
+            <button id="add-button">Add Item</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const itemList = document.getElementById('item-list');
+            const itemInput = document.getElementById('item-input');
+            const addButton = document.getElementById('add-button');
+
+            addButton.addEventListener('click', function() {
+                const newItem = itemInput.value.trim();
+                if (newItem !== '') {
+                    addItem(newItem);
+                    itemInput.value = '';
+                }
+            });
+
+            function addItem(item) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                itemList.appendChild(li);
+            }
+        });
+    </script>
+</body>
+</html>
